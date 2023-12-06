@@ -21,15 +21,7 @@ local not_in_math = function()
     return not (vim.fn["vimtex#syntax#in_mathzone"]() ==  1)
 end
 
-local snippets = {s(
-    { trig="\\env" },
-    fmt("\n" .. [[
-        \begin{<>}
-        <>
-        \end{<>}
-
-    ]], {i(1), i(2), rep(1)})
-)}
+local snippets = {}
 
 for k, v in pairs(levels) do
     table.insert(snippets, s(
