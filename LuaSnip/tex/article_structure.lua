@@ -17,8 +17,10 @@ local levels = {
     pa = "paragraph",
 }
 
+local in_math = require("env_detect").in_math
+
 local not_in_math = function()
-    return not (vim.fn["vimtex#syntax#in_mathzone"]() ==  1)
+    return not in_math()
 end
 
 local snippets = {}
