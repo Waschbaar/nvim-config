@@ -19,20 +19,24 @@ local plugins = {
         config = function()
             require("plugins.luasnip")
         end,
+        lazy = false,
 	},
 
     {
         "folke/tokyonight.nvim",
+        lazy = true,
     },
 
     {
         "lervag/vimtex",
-        lazy = false,
+        lazy = true,
+        ft = {"tex"}
     },
 
     {
         "nvim-tree/nvim-web-devicons",
         name = "devicons",
+        lazy = true,
     },
 
     {
@@ -41,6 +45,7 @@ local plugins = {
         config = function()
             require("plugins.lualine")
         end,
+        lazy = false,
     },
 
     {
@@ -69,9 +74,12 @@ local plugins = {
     },
     {
         "sainnhe/everforest",
+        lazy = true,
     },
     {
         "neovim/nvim-lspconfig",
+        name = "lspconfig",
+        lazy = true,
     },
     {
         "simrat39/rust-tools.nvim",
@@ -84,37 +92,43 @@ local plugins = {
     {
         "hrsh7th/cmp-buffer",
         name = "cmp1",
+        lazy = true,
     },
     {
         "hrsh7th/cmp-nvim-lsp",
         name = "cmp2",
+        lazy = true,
     },
     {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         name = "cmp3",
+        lazy = true,
     },
     {
         "hrsh7th/cmp-nvim-lua",
         name = "cmp4",
+        lazy = true,
     },
     {
         "hrsh7th/cmp-path",
         name = "cmp5",
+        lazy = true,
     },
     {
         "saadparwaiz1/cmp_luasnip",
         name = "cmpsnip",
+        lazy = true,
     },
     {
         "hrsh7th/nvim-cmp",
-        dependencies = {"cmp1", "cmp2", "cmp3", "cmp4", "cmp5", "cmpsnip"},
+        dependencies = {"cmp1", "cmp2", "cmp3", "cmp4", "cmp5", "cmpsnip", "lspconfig"},
         config = function()
             require("plugins.cmp")
         end,
+        lazy = true,
         ft = {"rust"},
     }
 }
-
 
 require("lazy").setup(plugins)
 
