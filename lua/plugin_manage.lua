@@ -23,8 +23,6 @@ local plugins = {
 
     {
         "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
     },
 
     {
@@ -71,7 +69,49 @@ local plugins = {
     },
     {
         "sainnhe/everforest",
-        lazy = false,
+    },
+    {
+        "neovim/nvim-lspconfig",
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        config = function()
+            require("plugins.rust_tools")
+        end,
+        ft = {"rust"}
+    },
+    
+    {
+        "hrsh7th/cmp-buffer",
+        name = "cmp1",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp",
+        name = "cmp2",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        name = "cmp3",
+    },
+    {
+        "hrsh7th/cmp-nvim-lua",
+        name = "cmp4",
+    },
+    {
+        "hrsh7th/cmp-path",
+        name = "cmp5",
+    },
+    {
+        "saadparwaiz1/cmp_luasnip",
+        name = "cmpsnip",
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {"cmp1", "cmp2", "cmp3", "cmp4", "cmp5", "cmpsnip"},
+        config = function()
+            require("plugins.cmp")
+        end,
+        ft = {"rust"},
     }
 }
 

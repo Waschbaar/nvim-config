@@ -23,7 +23,7 @@ local thms = {
     thm = "Theorem",
     lem = "Lemma",
     rmk = "Remark",
-    def = "Definition",
+    defi = "Definition",
     cor = "Corollary",
 }
 
@@ -40,7 +40,7 @@ local envs = {
 local thmconv = ""
 for k, v in pairs(thms) do
     thmconv = thmconv .. "\\newtheorem{" .. k .. "}{".. v .. "}\n"
-    envs[k] = v
+    envs[k] = k
 end
 table.insert(snippets, s(
     {trig="thmconv"},
