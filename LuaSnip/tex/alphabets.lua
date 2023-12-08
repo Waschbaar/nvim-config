@@ -43,8 +43,8 @@ local greek = {
     F = "Phi",
     vf = "varphi",
     ch = "chi",
-    ps = "psi",
-    Ps = "Psi",
+    Z = "psi",
+    I = "Psi",
     oo = "omega",
     Oo = "Omega",
 }
@@ -76,17 +76,11 @@ for k, v in pairs(greek) do
     ))
 end
 
-local in_math = function()
-    return vim.fn["vimtex#syntax#in_mathzone"]() == 1
-end
+local env = require("env_detect")
 
-local in_comment = function()
-    return vim.fn["vimtex#syntax#in_comment"]() == 1
-end
+local in_math = env.in_math
 
-local in_text = function()
-    return (not in_math()) and (not in_comment())
-end
+local in_text = env.in_text
 
 for k, v in pairs(mathfonts) do
     table.insert(snippets, s(

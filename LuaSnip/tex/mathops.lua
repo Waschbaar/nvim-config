@@ -8,14 +8,12 @@ local d = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
-local in_math = function()
-    return vim.fn["vimtex#syntax#in_mathzone"]() == 1
-end
-
 local two_arg_o = {
     ff = "frac",
     df = "dfrac",
 }
+
+local in_math = require("env_detect").in_math
 
 local snippets = {
     s({trig="newops"}, fmt("\\DeclareMathOperator{<>}{<>}", {i(1), i(2)})),
