@@ -80,6 +80,11 @@ local plugins = {
         lazy = true,
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        name = "treesitter",
+        lazy = true,
+    },
+    {
         "neovim/nvim-lspconfig",
         name = "lspconfig",
         lazy = true,
@@ -130,6 +135,19 @@ local plugins = {
         end,
         lazy = true,
         ft = {"rust"},
+    },
+    {
+        "nvim-lua/plenary.nvim",
+        lazy = true,
+        name = "plenary",
+    },
+    {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        dependencies = {"plenary", "treesitter"},
+        config = function()
+            require("plugins.neorg")
+        end,
     }
 }
 
