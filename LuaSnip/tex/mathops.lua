@@ -9,7 +9,7 @@ local fmt = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 local two_arg_o = {
-    ff = "frac",
+    fc = "frac",
     df = "dfrac",
 }
 

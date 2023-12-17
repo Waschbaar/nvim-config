@@ -30,7 +30,10 @@ local plugins = {
     {
         "lervag/vimtex",
         lazy = true,
-        ft = {"tex"}
+        ft = {"tex"},
+        config = function()
+            require("plugins.vimtex")
+        end
     },
 
     {
