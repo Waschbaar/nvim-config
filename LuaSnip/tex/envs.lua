@@ -14,7 +14,6 @@ local snippets = {s(
         \begin{<>}
         <>
         \end{<>}
-
     ]], {i(1), i(2), rep(1)})
 )}
 
@@ -54,7 +53,6 @@ for k, v in pairs(envs) do
             \begin{<>}
             <>
             \end{<>}
-
         ]], {t(v), i(1), t(v)})
     ))
 end

@@ -76,11 +76,30 @@ for k, v in pairs(greek) do
     ))
 end
 
-local env = require("env_detect")
+local env_detect = {}
 
-local in_math = env.in_math
+env_detect.inside_env = function(name)
+    local lines = vim.fn["vimtex#env#is_inside"](name)
+    return not (lines[1] == 0 or lines[2] == 0)
+end
 
-local in_text = env.in_text
+env_detect.in_math = function()
+    local mathzone = vim.fn["vimtex#syntax#in_mathzone"]() == 1
+    return mathzone or env_detect.inside_env("tikzcd")
+end
+
+env_detect.in_comment = function()
+    return vim.fn["vimtex#syntax#in_comment"]() == 1
+end
+
+env_detect.in_text = function()
+    return (not env_detect.in_math()) and (not env_detect.in_comment())
+end
+
+
+local in_math = env_detect.in_math
+
+local in_text = env_detect.in_text
 
 for k, v in pairs(mathfonts) do
     table.insert(snippets, s(

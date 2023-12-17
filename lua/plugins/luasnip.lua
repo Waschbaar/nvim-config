@@ -8,7 +8,7 @@ smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
 imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'
 ]]
 
-require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})
+require("luasnip.loaders.from_lua").load({paths = "./LuaSnip/"})
 require("luasnip").config.set_config({
     enable_autosnippets = true,
     store_selection_keys = "<Tab>",

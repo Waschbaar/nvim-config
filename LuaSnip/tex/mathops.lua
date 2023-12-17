@@ -13,7 +13,24 @@ local two_arg_o = {
     df = "dfrac",
 }
 
-local in_math = require("env_detect").in_math
+
+local inside_env = function(name)
+    local lines = vim.fn["vimtex#env#is_inside"](name)
+    return not (lines[1] == 0 or lines[2] == 0)
+end
+
+local in_math = function()
+    local mathzone = vim.fn["vimtex#syntax#in_mathzone"]() == 1
+    return mathzone or inside_env("tikzcd")
+end
+
+local in_comment = function()
+    return vim.fn["vimtex#syntax#in_comment"]() == 1
+end
+
+local in_text = function()
+    return (not env_detect.in_math()) and (not env_detect.in_comment())
+end
 
 local snippets = {
     s({trig="newops"}, fmt("\\DeclareMathOperator{<>}{<>}", {i(1), i(2)})),
