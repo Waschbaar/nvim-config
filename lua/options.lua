@@ -5,6 +5,14 @@ local indent = 4
 
 cmd[[
 	filetype plugin indent on
+    function! DisableIndent()
+        set autoindent&
+        set cindent&
+        set smartindent&
+        set indentexpr&
+    endfunction
+
+    autocmd FileType tex call DisableIndent()
 ]]
 
 opt.expandtab = true

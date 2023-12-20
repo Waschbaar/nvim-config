@@ -145,6 +145,8 @@ local plugins = {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         dependencies = {"plenary", "treesitter"},
+        lazy = true,
+        ft = {"norg"},
         config = function()
             require("plugins.neorg")
         end,
