@@ -30,4 +30,6 @@ cmd[[
 ]]
 
 vim.g.mapleader = ","
-
+cmd[[
+    autocmd FileType tex nmap <C-Q> :!make preview<CR>
+]]

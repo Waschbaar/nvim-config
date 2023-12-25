@@ -36,11 +36,17 @@ local envs = {
     alds = "aligned*",
 }
 
-local thmconv = ""
-for k, v in pairs(thms) do
-    thmconv = thmconv .. "\\newtheorem{" .. k .. "}{".. v .. "}\n"
-    envs[k] = k
-end
+local thmconv = [[
+    \theoremstyle{plain}
+    \newtheorem{thm}{Theorem}
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{lem}[thm]{Lemma}
+    \newtheorem{cor}[thm]{Corollary}
+    \theoremstyle{definition}
+    \newtheorem{defi}[thm]{Definition}
+    \theoremstyle{remark}
+    \newtheorem{rmk}[thm]{Remark}
+]]
 table.insert(snippets, s(
     {trig="thmconv"},
     fmt(thmconv, {})
