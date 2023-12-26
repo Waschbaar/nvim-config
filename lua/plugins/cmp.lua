@@ -15,10 +15,8 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<Tab>"] = cmp.mapping.select_next_item(),
-        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        ["<C-z>"] = cmp.mapping.select_prev_item(),
+        ["<C-q>"] = cmp.mapping.select_next_item(),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({
@@ -36,5 +34,11 @@ cmp.setup({
     },
 })
 
+cmp.setup.filetype("tex", {
+    sources = {
+        { name = "vimtex" },
+        { name = "luasnip" },
+    }
+})
 -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 

@@ -36,6 +36,10 @@ local envs = {
     alds = "aligned*",
 }
 
+for k, _ in pairs(thms) do
+    envs[k] = k
+end
+
 local thmconv = [[
     \theoremstyle{plain}
     \newtheorem{thm}{Theorem}

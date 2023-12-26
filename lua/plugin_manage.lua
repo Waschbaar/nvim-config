@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	{
 		"L3MON4D3/LuaSnip",
-		version = "2.*",
         config = function()
             require("plugins.luasnip")
         end,
@@ -29,7 +28,7 @@ local plugins = {
 
     {
         "lervag/vimtex",
-        lazy = true,
+        name = "vimtex",
         ft = {"tex"},
         config = function()
             require("plugins.vimtex")
@@ -128,13 +127,18 @@ local plugins = {
         lazy = true,
     },
     {
+        "Waschbaar/cmp-vimtex",
+        name = "cmptex",
+        ft = {"tex"},
+    },
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {"cmp1", "cmp2", "cmp3", "cmp4", "cmp5", "cmpsnip", "lspconfig"},
         config = function()
             require("plugins.cmp")
         end,
         lazy = true,
-        ft = {"rust"},
+        ft = {"rust", "tex"},
     },
     {
         "nvim-lua/plenary.nvim",
